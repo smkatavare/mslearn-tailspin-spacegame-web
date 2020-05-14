@@ -1,5 +1,5 @@
 trigger:
-- '*'
+- 'code-coverage'
 
 pool:
   vmImage: 'ubuntu-16.04'
@@ -9,10 +9,10 @@ pool:
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  # dotnetSdkVersion: '2.1.505'
+  dotnetSdkVersion: '3.1.100'
 
 steps:
-# - task: DotNetCoreInstaller@0
+# - task: UseDotNet@2
 #   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
 #   inputs:
 #     version: '$(dotnetSdkVersion)'
@@ -69,7 +69,7 @@ steps:
   inputs:
     codeCoverageTool: 'cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
-    
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
