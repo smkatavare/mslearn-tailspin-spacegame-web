@@ -1,5 +1,5 @@
 trigger:
-- 'code-coverage'
+- 'failed-test'
 
 pool:
   vmImage: 'ubuntu-16.04'
